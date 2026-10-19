@@ -4,28 +4,19 @@ public class bai3 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        
-        System.out.print("Nhap so luong phan tu n: ");
-        int n = scanner.nextInt();
+        System.out.print("Nhap vao chuoi cac so (cach nhau boi dau cach): ");
+        String chuoiNhap = scanner.nextLine();
 
-        int[] arr = new int[n];
+        String[] phanTuChuoi = chuoiNhap.trim().split("\\s+");
+        int soPhanTu = phanTuChuoi.length;
+        int tong = 0;
 
-        
-        System.out.println("Nhap cac phan tu cua mang:");
-        for (int i = 0; i < n; i++) {
-            System.out.print("arr[" + i + "] = ");
-            arr[i] = scanner.nextInt();
+        for (int i = 0; i < soPhanTu; i++) {
+            int so = Integer.parseInt(phanTuChuoi[i]);
+            tong += so;
         }
 
-        
-        int max = arr[0]; 
-        for (int i = 1; i < n; i++) {
-            max = Math.max(max, arr[i]);
-        }
-
-        
-        System.out.println("Phan tu lon nhat trong mang la: " + max);
-
+        System.out.println("So phan tu: " + soPhanTu + "; Tong: " + tong);
         scanner.close();
     }
 }
