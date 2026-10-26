@@ -1,41 +1,24 @@
-import java.util.Scanner;
-
 public class bai2 {
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    public static void tinhMangTong(int[] arr1, int[] arr2) {
+        int maxLen = Math.max(arr1.length, arr2.length);
+        int[] mangTong = new int[maxLen];
 
-        
-        System.out.print("Nhap so luong phan tu n: ");
-        int n = scanner.nextInt();
-
-        int[] arr = new int[n];
-
-        
-        System.out.println("Nhap cac phan tu cua mang:");
-        for (int i = 0; i < n; i++) {
-            System.out.print("arr[" + i + "] = ");
-            arr[i] = scanner.nextInt();
+        for (int i = 0; i < maxLen; i++) {
+            int val1 = (i < arr1.length) ? arr1[i] : 0;
+            int val2 = (i < arr2.length) ? arr2[i] : 0;
+            mangTong[i] = val1 + val2;
         }
 
-        
-        System.out.print("Nhap so nguyen can tim vi tri: ");
-        int x = scanner.nextInt();
-
-        
-        boolean timThay = false;
-        System.out.print("Chi so (vi tri) cua phan tu " + x + " la: ");
-        for (int i = 0; i < n; i++) {
-            if (arr[i] == x) {
-                System.out.print(i + " ");
-                timThay = true;
-            }
+        System.out.print("Mang tong la: ");
+        for (int i = 0; i < maxLen; i++) {
+            System.out.print(mangTong[i] + " ");
         }
-
-        if (!timThay) {
-            System.out.print("Khong tim thay so " + x + " trong mang.");
-        }
-        
         System.out.println();
-        scanner.close();
+    }
+
+    public static void main(String[] args) {
+        int[] a = {1, 2, 3, 4};
+        int[] b = {5, 6, 7, 8, 9};
+        tinhMangTong(a, b);
     }
 }
